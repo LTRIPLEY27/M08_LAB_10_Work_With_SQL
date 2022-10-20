@@ -50,6 +50,7 @@ public class WordRepository {
         }
     }
 
+    // ADICIÓN DE NUEVO ATRIBUTO, ELIMINA TODA LA LISTA
     private static class deleteAsynTask extends AsyncTask<Void, Void, Void>{
 
         private WordDao mDeleteDao;

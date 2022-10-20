@@ -73,6 +73,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    // MÉTODO QUE VERIFICA SI ELIMINA O AGREGA ELEMENTOS
     @Override
     public void onClick(View view) {
         if(view.getId() == R.id.deleteButton){
