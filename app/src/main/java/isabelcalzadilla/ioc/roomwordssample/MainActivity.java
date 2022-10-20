@@ -16,7 +16,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.List;
 
 // **********    TASK 9.2 : INSTANCIACION DEL RECYCLERVIEW EN MAINACTIVITY  **********
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final int NEW_WORD_ACTIVITY_REQUEST_CODE = 1;
     private RecyclerView recycler;
@@ -39,7 +39,12 @@ public class MainActivity extends AppCompatActivity {
         adapter = new WordListAdapter(this);
         recycler.setAdapter(adapter);
         recycler.setLayoutManager(new LinearLayoutManager(this));
+        add = findViewById(R.id.floatingActionButton);
+        delete = findViewById(R.id.deleteButton);
 
+        // LLAMADO AL CLICKLISTENER
+        add.setOnClickListener(this);
+        delete.setOnClickListener(this);
         //11.1 INSERCIÓN DEL VIEWMODEL  (CICLO DE VIDA)
         // SE CREA LA ASOCIACIÓN DEL VIEWMODEL CON EL CONTROLADOR (persistencia)
         modelView = ViewModelProviders.of(this).get(WordViewModel.class);
@@ -51,16 +56,6 @@ public class MainActivity extends AppCompatActivity {
                 adapter.setmWords(words);
             }
         });
-
-        FloatingActionButton fab = findViewById(R.id.floatingActionButton);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, NewWordActivity.class);
-                startActivityForResult(intent, NEW_WORD_ACTIVITY_REQUEST_CODE);
-            }
-        });
-
     }
 
     /// METODO NEW WORD
@@ -78,4 +73,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onClick(View view) {
+        if(view.getId() == R.id.deleteButton){
+            modelView.delete();
+        } else {
+            Intent intent = new Intent(MainActivity.this, NewWordActivity.class);
+            startActivityForResult(intent, NEW_WORD_ACTIVITY_REQUEST_CODE);
+        }
+    }
 }
