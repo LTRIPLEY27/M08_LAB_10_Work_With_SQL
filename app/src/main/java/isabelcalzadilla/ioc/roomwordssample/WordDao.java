@@ -1,9 +1,11 @@
 package isabelcalzadilla.ioc.roomwordssample;
 
-import android.arch.persistence.room.Dao;
-import android.arch.persistence.room.Delete;
-import android.arch.persistence.room.Insert;
-import android.arch.persistence.room.Query;
+
+import androidx.lifecycle.LiveData;
+import androidx.room.Dao;
+import androidx.room.Delete;
+import androidx.room.Insert;
+import androidx.room.Query;
 
 import java.util.List;
 
@@ -16,10 +18,10 @@ public interface WordDao {
     void insert(Word word);
 
     @Query("DELETE FROM word_table")
-    @Delete /// verificar pues difiere del lab
     void deleteAll();
 
-
+    // **********    TASK 4.1 : inserción del LIVEDATA en WordDAO  **********
+    // OBSERVADORES
     @Query("SELECT * FROM word_table ORDER BY word ASC")
-    List<Word> getAllWords();
+    LiveData<List<Word>> getAllWords();
 }

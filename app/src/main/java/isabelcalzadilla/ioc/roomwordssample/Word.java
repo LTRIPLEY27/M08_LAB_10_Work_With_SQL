@@ -1,9 +1,9 @@
 package isabelcalzadilla.ioc.roomwordssample;
 
-import android.arch.persistence.room.Entity;
-import android.support.annotation.NonNull;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
+import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 // **********    TASK 2 : CREACIÓN DE LA CLASE 'WORD'  **********
@@ -16,11 +16,8 @@ public class Word {
     @ColumnInfo(name = "word")
     private String mWord;
 
-    public Word(@NonNull String mWord) {
-        this.mWord = mWord;
-    }
+    public Word(@NonNull String word) {this.mWord = word;}
 
-    public String getmWord() {
-        return mWord;
-    }
+    public String getWord(){return this.mWord;}
+
 }

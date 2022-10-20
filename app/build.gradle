@@ -29,11 +29,8 @@ android {
 
 // **********    TASK 1 : ADHERIR DEPENDENCIAS   **********
 dependencies {
-
-    implementation 'androix.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'androidx.appcompat:appcompat-resources:1.5.1'
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
     implementation 'androidx.recommendation:recommendation:1.0.0'
     implementation 'androidx.room:room-common:2.4.3'
