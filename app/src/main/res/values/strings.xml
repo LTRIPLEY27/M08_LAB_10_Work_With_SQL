@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">RoomWordsSample</string>
+    <!--**********    TASK 12.1 : CREACIÓN DE STRING PARA USAR EN LA INTERFAZ **********-->
+    <string name="hint_word">Word...</string>
+    <string name="button_save">Save</string>
+    <string name="empty_not_saved">Word not saved because it is empty.</string>
+    <string name="title">MY BEST HISTORY MOVIES</string>
+
 </resources>
