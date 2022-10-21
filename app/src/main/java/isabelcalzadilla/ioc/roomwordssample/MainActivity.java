@@ -1,10 +1,12 @@
 package isabelcalzadilla.ioc.roomwordssample;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -77,6 +79,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         if(view.getId() == R.id.deleteButton){
+            AlertDialog.Builder alerta = new AlertDialog.Builder(MainActivity.this);
+            alerta.setTitle("Eliminar");
+            alerta.setMessage("Está seguro de eliminar la lista?");
+            alerta.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    modelView.delete();
+                }
+            });
+            alerta.show();
             modelView.delete();
         } else {
             Intent intent = new Intent(MainActivity.this, NewWordActivity.class);
